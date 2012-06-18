@@ -1,1 +1,7 @@
 target/
+target-eclipse/
+release.properties
+*.releaseBackup
+.project
+.classpath
+.settings
