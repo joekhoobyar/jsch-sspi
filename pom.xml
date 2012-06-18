@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>name.khoobyar.joe</groupId>
+  <artifactId>jsch-sspi</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>SSPI for JCraft JSch</name>
+  <description>Use JSCH with native Win32 kerberos support (SSPI)</description>
+  <developers>
+    <developer>
+      <id>jkhoobyar</id>
+      <email>joe@ankhcraft.com</email>
+      <name>Joe Khoobyar</name>
+      <roles>
+        <role>contributor</role>
+        <role>maintainer</role>
+      </roles>
+    </developer>
+  </developers>
+  <dependencies>
+    <dependency>
+      <groupId>net.java.dev.jna</groupId>
+      <artifactId>jna</artifactId>
+      <version>3.2.7</version>
+    </dependency>
+    <dependency>
+      <groupId>net.java.dev.jna</groupId>
+      <artifactId>jna_platform</artifactId>
+      <version>3.2.7</version>
+    </dependency>
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jzlib</artifactId>
+      <version>1.0.7</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jsch</artifactId>
+      <version>0.1.48</version>
+      <type>jar</type>
+    </dependency>
+  </dependencies>
+  <properties>
+    <project.build.java.target>1.5</project.build.java.target>
+  </properties>
+  <scm>
+    <connection>scm:git:git://github.com/joekhoobyar/jsch.git</connection>
+    <developerConnection>scm:git:ssh//github.com/joekhoobyar/jsch.git</developerConnection>
+    <url>http://github.com/joekhoobyar/jsch</url>
+  </scm>
+</project>
