@@ -20,12 +20,12 @@
     <dependency>
       <groupId>net.java.dev.jna</groupId>
       <artifactId>jna</artifactId>
-      <version>3.2.7</version>
+      <version>3.4.0</version>
     </dependency>
     <dependency>
       <groupId>net.java.dev.jna</groupId>
-      <artifactId>jna_platform</artifactId>
-      <version>3.2.7</version>
+      <artifactId>platform</artifactId>
+      <version>3.4.0</version>
     </dependency>
     <dependency>
       <groupId>com.jcraft</groupId>
