@@ -20,12 +20,12 @@
     <dependency>
       <groupId>net.java.dev.jna</groupId>
       <artifactId>jna</artifactId>
-      <version>3.4.0</version>
+      <version>3.2.7</version>
     </dependency>
     <dependency>
       <groupId>net.java.dev.jna</groupId>
-      <artifactId>platform</artifactId>
-      <version>3.4.0</version>
+      <artifactId>jna_platform</artifactId>
+      <version>3.2.7</version>
     </dependency>
     <dependency>
       <groupId>com.jcraft</groupId>
@@ -36,8 +36,14 @@
     <dependency>
       <groupId>com.jcraft</groupId>
       <artifactId>jsch</artifactId>
-      <version>0.1.48</version>
+      <version>0.1.44-1</version>
       <type>jar</type>
+      <exclusions>
+      	<exclusion>
+          <groupId>net.java.dev.jna</groupId>
+          <artifactId>jna_platform</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
   <properties>

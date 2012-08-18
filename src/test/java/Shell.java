@@ -51,7 +51,6 @@ public class Shell {
 			session.setConfig("PreferredAuthentications", "gssapi-with-mic");
 			//session.setConfig("GSSAPIAuthentication", "yes");
 			//session.setConfig("GSSAPIDelegateCredentials", "yes");
-			// session.setConfig("gssapi-with-mic.krb5", "com.jcraft.jsch.sspi.GSSContextSSPI");
 			session.setConfig("StrictHostKeyChecking", "no");
 
 			// session.connect();
@@ -83,7 +82,7 @@ public class Shell {
 			// channel.connect();
 			channel.connect(3 * 1000);
 		} catch (Exception e) {
-			System.out.println(e);
+			 e.printStackTrace (System.err);
 		}
 	}
 
