@@ -1,7 +1,7 @@
 /**
  * Copyright 2008-2012 Joe Khoobyar.
  */
-package name.khoobyar.joe.jsch.sspi;
+package name.khoobyar.joe.jsch;
 
 import com.jcraft.jsch.JSch;
 

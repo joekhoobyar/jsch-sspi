@@ -18,17 +18,17 @@ import com.jcraft.jsch.Session;
 import com.jcraft.jsch.UIKeyboardInteractive;
 import com.jcraft.jsch.UserInfo;
 
-import name.khoobyar.joe.jsch.sspi.JSchSSPI;
+import name.khoobyar.joe.jsch.JSchSSPI;
 
 public class Shell {
 
 	public static void main(String[] arg) {
 
 		try {
-			if (arg.length != 1) {
+			if (arg.length < 1) {
 				System.err.println ("usage: Shell hostname");
 				System.exit (-1);
-			}
+			} 
 
 			String host = arg[0];
 			String user = System.getProperty ("user.name");
@@ -36,7 +36,7 @@ public class Shell {
 			Logger logger = new Logger() {
 				public boolean isEnabled(int level) { return true; }
 				public void log(int level, String message) { System.out.println(message); }
-			}
+			};
 
 			JSch jsch = new JSchSSPI ();
 			jsch.setKnownHosts (home+File.separator+".ssh"+File.separator+"known_hosts");

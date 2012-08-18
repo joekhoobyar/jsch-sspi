@@ -9,7 +9,7 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Logger;
 import com.jcraft.jsch.Session;
 
-import name.khoobyar.joe.jsch.sspi.JSchSSPI;
+import name.khoobyar.joe.jsch.JSchSSPI;
 
 public class Transfer {
 
