@@ -18,16 +18,6 @@
   </developers>
   <dependencies>
     <dependency>
-      <groupId>net.java.dev.jna</groupId>
-      <artifactId>jna</artifactId>
-      <version>3.2.7</version>
-    </dependency>
-    <dependency>
-      <groupId>net.java.dev.jna</groupId>
-      <artifactId>jna_platform</artifactId>
-      <version>3.2.7</version>
-    </dependency>
-    <dependency>
       <groupId>com.jcraft</groupId>
       <artifactId>jzlib</artifactId>
       <version>1.1.1</version>
@@ -42,6 +32,11 @@
           <artifactId>jna_platform</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+    	<groupId>name.khoobyar.joe</groupId>
+    	<artifactId>gsspi</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <properties>
