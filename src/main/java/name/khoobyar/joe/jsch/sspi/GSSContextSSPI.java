@@ -30,15 +30,12 @@ public class GSSContextSSPI
 	private String serverName;
 	private String serverKrbName;
 	
-	static {
-		//Native.setProtected (true);
-	}
-
 	public GSSContextSSPI () {
 		SspiUtils.requireSecurityPackage ("Kerberos");
 	}
 
 	public void create (String user, String host) throws JSchException {
+		System.err.println ("GSS CREATE");
 		dispose ();
 		
 		// Identify the service principal for the given host.
@@ -70,6 +67,7 @@ public class GSSContextSSPI
 	}
 
 	public byte[] init (byte[] token, int s, int l) throws JSchException {
+		System.err.println ("GSS INIT");
 	    if (credHandle==null || credHandle.isNull ())
             throw new IllegalStateException ("A credentials handle must be acquired first");
 
@@ -103,6 +101,7 @@ public class GSSContextSSPI
 	}
 
 	public byte[] getMIC(byte[] message, int s, int l) {
+		System.err.println ("GSS getMIC");
 		if (!isEstablished ())
             throw new IllegalStateException ("The security context must be established first.");
 		
@@ -114,9 +113,10 @@ public class GSSContextSSPI
 
 	/** Disposes of any handles and resets transient internal state. */
 	public void dispose () {
+		System.err.println ("GSS dispose");
 		try {
-			SspiUtils.dispose (contextHandle);
-			SspiUtils.dispose (credHandle);
+			//SspiUtils.dispose (contextHandle);
+			//SspiUtils.dispose (credHandle);
 		}
 		finally { 
 			sspiState = null;

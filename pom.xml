@@ -26,17 +26,11 @@
       <groupId>com.jcraft</groupId>
       <artifactId>jsch</artifactId>
       <version>0.1.48</version>
-      <exclusions>
-      	<exclusion>
-          <groupId>net.java.dev.jna</groupId>
-          <artifactId>jna_platform</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
-    	<groupId>name.khoobyar.joe</groupId>
-    	<artifactId>gsspi</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
+		<groupId>name.khoobyar.joe</groupId>
+		<artifactId>gsspi</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <properties>
