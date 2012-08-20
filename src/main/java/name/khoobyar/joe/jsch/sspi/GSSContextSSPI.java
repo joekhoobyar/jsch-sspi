@@ -115,8 +115,8 @@ public class GSSContextSSPI
 	/** Disposes of any handles and resets transient internal state. */
 	public void dispose () {
 		try {
-			SspiUtils.dispose (credHandle);
 			SspiUtils.dispose (contextHandle);
+			SspiUtils.dispose (credHandle);
 		}
 		finally { 
 			sspiState = null;
