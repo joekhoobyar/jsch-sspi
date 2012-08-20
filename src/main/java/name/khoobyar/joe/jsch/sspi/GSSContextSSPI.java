@@ -35,7 +35,7 @@ public class GSSContextSSPI
 	}
 
 	public void create (String user, String host) throws JSchException {
-		System.err.println ("GSS CREATE");
+		// Reset our internal state before doing anything...
 		dispose ();
 		
 		// Identify the service principal for the given host.
@@ -63,11 +63,10 @@ public class GSSContextSSPI
 
 	/** @return <tt>true</tt> if the the GSS context is established. */
 	public boolean isEstablished() {
-		return contextHandle!=null && ! contextHandle.isNull () && (sspiState==null || ! sspiState.isIncomplete ());
+		return contextHandle!=null && ! contextHandle.isNull () && (sspiState==null || sspiState.isValid ());
 	}
 
 	public byte[] init (byte[] token, int s, int l) throws JSchException {
-		System.err.println ("GSS INIT");
 	    if (credHandle==null || credHandle.isNull ())
             throw new IllegalStateException ("A credentials handle must be acquired first");
 
@@ -95,38 +94,28 @@ public class GSSContextSSPI
 		}
 		
 		// Finish up the token if it is done.
-		if (! sspiState.isIncomplete ())
+		if (sspiState.isValid ())
 			this.contextHandle = sspiState.handle;
 		return sspiState.data;
 	}
 
 	public byte[] getMIC(byte[] message, int s, int l) {
-		System.err.println ("GSS getMIC");
 		if (!isEstablished ())
             throw new IllegalStateException ("The security context must be established first.");
-		
-		byte signature[] = SspiUtils.makeSignature (contextHandle, asArray (message, s, l), 0);
-		if (signature == null)
-			dispose ();
-		return signature;
+		return SspiUtils.makeSignature (contextHandle, asArray (message, s, l), 0);
 	}
 
 	/** Disposes of any handles and resets transient internal state. */
 	public void dispose () {
-		System.err.println ("GSS dispose");
-		try {
-			//SspiUtils.dispose (contextHandle);
-			//SspiUtils.dispose (credHandle);
-		}
-		finally { 
-			sspiState = null;
-			contextHandle = null;
-			credHandle = null;
-			credStamp = null;
-		}
+		SspiUtils.dispose (contextHandle);
+		SspiUtils.dispose (credHandle);
+		sspiState = null;
+		contextHandle = null;
+		credHandle = null;
+		credStamp = null;
 	}
 
-	/** Returns a slice of the given array, allocating a new array only when necessary. */
+	/** Returns a range from the given array, avoiding array copying whenever possible. */
 	private byte[] asArray (byte[] token, int s, int l) {
 		if (token==null || (s==0 && l==token.length))
 			return token;
@@ -152,8 +141,8 @@ public class GSSContextSSPI
 	    	this.data = data;
 		}
 	    
-	    public boolean isIncomplete () {
-			return 0 != (attrs & Sspi.ISC_RET_INTERMEDIATE_RETURN);
+	    public boolean isValid () {
+			return 0 == (attrs & Sspi.ISC_RET_INTERMEDIATE_RETURN);
 	    }
 	}
 }
