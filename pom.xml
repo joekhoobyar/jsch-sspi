@@ -8,14 +8,36 @@
   <developers>
     <developer>
       <id>jkhoobyar</id>
-      <email>joe@ankhcraft.com</email>
+      <email>joe@khoobyar.name</email>
       <name>Joe Khoobyar</name>
       <roles>
-        <role>contributor</role>
+        <role>developer</role>
         <role>maintainer</role>
       </roles>
     </developer>
   </developers>
+  <repositories>
+  	<repository>
+        <id>github-releases</id>
+        <url>http://joekhoobyar.github.com/maven-repo/releases/</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>        
+     </repository>
+     <repository>
+        <id>github-snapshots</id>
+        <url>http://joekhoobyar.github.com/maven-repo/snapshots/</url>
+        <releases>
+          <enabled>false</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>        
+     </repository>
+  </repositories>
   <dependencies>
     <dependency>
       <groupId>com.jcraft</groupId>
