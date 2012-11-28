@@ -63,7 +63,7 @@
     <dependency>
 		<groupId>name.khoobyar.joe</groupId>
 		<artifactId>gsspi</artifactId>
-		<version>0.0.1</version>
+		<version>0.0.3-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <properties>
